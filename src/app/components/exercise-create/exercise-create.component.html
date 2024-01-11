@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>Add exercise</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="col-md-12">
+        <div class="card card-container" >
+            <form class="exercise-details-content"
+            *ngIf="!isSuccessful"
+            name="form"
+            (ngSubmit)="f.form.valid && onSubmitForTrainer()"
+            #f="ngForm"
+            novalidate
+            class="add-exercise-form">
+
+            <mat-form-field>
+                <mat-label>Chose an option</mat-label>
+                <mat-select [(ngModel)]="form.exerciseName" name="form.exerciseName">
+                  <mat-option *ngFor="let option of options" [value]="option.value">{{ option.label }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="comment-field">
+                <mat-label>Comment</mat-label>
+                <input matInput
+                        type="text"
+                        class="form-control"
+                        name="comment"
+                        [(ngModel)]="form.comment"
+                        required
+                        minlength="3"
+                        maxlength="200"
+                        #comment="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && comment.errors }"/>
+                    <div class="invalid-feedback" *ngIf="comment.errors && f.submitted">
+                        <div *ngIf="comment.errors['required']">Name is required</div>
+                            <div *ngIf="comment.errors['minlength']">
+                                Name must be at least 3 characters
+                            </div>
+                            <div *ngIf="comment.errors['maxlength']">
+                            Name must be at most 200 characters
+                            </div>
+                    </div>
+            </mat-form-field>
+                
+                <div class="add-button">
+                    <button  mat-raised-button class="add-button" matTooltip="Add exercise">
+                        Add exercise
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

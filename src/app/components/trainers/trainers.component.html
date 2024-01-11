@@ -1,0 +1,22 @@
+<mat-paginator [length]="50" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 50]" aria-label="Select page"></mat-paginator>
+<div class="container responsive-grid">
+    <mat-card *ngFor="let trainer of trainers" class="trainer-card"  (click)="redirectToTrainerDetails(trainer.id)">
+        <mat-card-header>
+            <mat-card-title>{{ trainer.firstName }} {{ trainer.lastName }}</mat-card-title>
+        </mat-card-header>
+            <br />
+        <img mat-card-image src="/assets/images/trainer-register.png" />
+            <mat-card-content>
+            <br />
+        <p>Email: {{ trainer.email }}</p>
+        <p>Phone: {{ trainer.phoneNumber }}</p>
+        <p>Gym: {{ trainer.actualGym }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>Profile details</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+
+

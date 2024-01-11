@@ -1,0 +1,32 @@
+<div class="under-menu">
+    <div class="under-menu-paginator">
+        <mat-paginator [length]="50" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 50]" aria-label="Select page"></mat-paginator>
+    </div>
+    <div class="under-menu-button">
+        <button  mat-raised-button class="add-button" matTooltip="Add exercise" (click)="openDialog()" *ngIf="isLoggedInTrainer">
+            Add exercise
+        </button>
+    </div>
+
+
+</div>
+<div class="container responsive-grid">
+    <mat-card *ngFor="let exercise of exercises" class="exercise-card" (click)="redirectToExerciseUpdateByProfile(exercise.id)">
+        <mat-card-header>
+            <mat-card-title>{{ exercise.exerciseName }}</mat-card-title>
+        </mat-card-header>
+            <br />
+            <mat-card-content>
+            <br />
+        <p>Maximum weight: {{ exercise.maximumWeight }}</p>
+        <p>Last update: {{ exercise.date  | date:'yyyy-MM-dd HH:mm' }}</p>
+        <p>Comment: {{ exercise.comment }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>EDIT</button>
+
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+

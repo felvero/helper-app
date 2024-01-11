@@ -1,0 +1,52 @@
+.example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+}
+
+.example-right-align {
+    text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+}
+
+input.example-right-align {
+    appearance: textfield;
+}
+
+.exercise-details-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-button{
+margin-bottom: 30px;
+margin-right: 10px;
+}
+
+.add-button{
+display: flex;
+justify-content: center;
+flex-direction: column;
+width: auto;
+}
+
+.comment-field{
+    display: flex;
+    width: 400px;
+}
+
+.add-exercise-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }

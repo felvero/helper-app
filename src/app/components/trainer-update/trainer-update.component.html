@@ -1,0 +1,56 @@
+<div class="details-card-container">
+    <mat-card class="details-card" >
+        <mat-card-content class="details-card" >
+            <mat-card class="img">
+                <img mat-card-image class="posters" src="/assets/images/trainer-register.png"  alt="">
+            </mat-card>
+            <div class="details-content-div">
+                <mat-card class="details-content">
+                    <mat-card-content class="details-content">
+                        <h1>First Name: <input matInput type="text" class="example-center-align" placeholder="0" id="firstName" [(ngModel)]="trainer.firstName" name="firstName"></h1>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="details-content">
+                    <mat-card-content class="details-content">
+                        <h1>Last Name: <input matInput type="text" class="example-center-align" placeholder="0" id="firstName" [(ngModel)]="trainer.lastName" name="firstName"></h1>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="details-content">
+                    <mat-card-content class="details-content">
+                        <h1>Email: <input matInput type="text" class="example-center-align" placeholder="0" id="firstName" [(ngModel)]="trainer.email" name="firstName"></h1>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="details-content">
+                    <mat-card-content class="details-content">
+                        <h1>Phone number: <input matInput type="text" class="example-center-align" placeholder="0" id="firstName" [(ngModel)]="trainer.phoneNumber" name="firstName"></h1>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="details-content">
+                    <mat-card-content class="details-content">
+                        <h1>Year of birth: <input matInput type="text" class="example-center-align" placeholder="0" id="firstName" [(ngModel)]="trainer.yearOfBirth" name="firstName"></h1>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="details-content">
+                    <mat-card-content class="details-content">
+                        <h1>Actual Gym: <input matInput type="text" class="example-center-align" placeholder="0" id="firstName" [(ngModel)]="trainer.actualGym" name="firstName"></h1>
+                    </mat-card-content>
+                </mat-card>
+                <button  mat-raised-button class="update-button"  type="" matTooltip="Back to previous page" aria-label="Button that displays a 
+                tooltip when focused or hovered over" routerLink="/">
+                    Back
+                </button>
+                <button  mat-raised-button class="update-button" type="submit" matTooltip="Save all changes" aria-label="Button that displays a 
+                tooltip when focused or hovered over" (click)="onSubmit()">
+                    Save
+                </button>
+            </div>
+            
+        </mat-card-content>
+        <div>
+
+        </div>
+
+    </mat-card>
+</div>
+
+

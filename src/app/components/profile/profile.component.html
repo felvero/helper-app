@@ -1,0 +1,74 @@
+<div class="details-card-container">
+    <mat-card class="details-card">
+        <mat-card-content class="details-card" >
+            <mat-card class="img">
+                <img  *ngIf="isLoggedInTrainer" mat-card-image class="posters" src="/assets/images/trainer-register.png"  alt="">
+                <img  *ngIf="isLoggedInTrainee" mat-card-image class="posters" src="/assets/images/trainee-register.png"  alt="">
+            </mat-card>
+            <div class="details-content-div">
+                <mat-card class="details-content">
+                    <mat-card-content class="details-content">
+                        <h1 *ngIf="isLoggedInTrainer">First Name: {{trainerDetails.firstName}}</h1>
+                        <h1 *ngIf="isLoggedInTrainee">First Name: {{traineeDetails.firstName}}</h1>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="details-content">
+                    <mat-card-content class="details-content">
+                        <h1 *ngIf="isLoggedInTrainer">Last Name: {{trainerDetails.lastName}}</h1>
+                        <h1 *ngIf="isLoggedInTrainee">Last Name: {{traineeDetails.lastName}}</h1>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="details-content">
+                    <mat-card-content class="details-content">
+                        <h1 *ngIf="isLoggedInTrainer">Email: {{trainerDetails.email}}</h1>
+                        <h1 *ngIf="isLoggedInTrainee">Email: {{traineeDetails.email}}</h1>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="details-content">
+                    <mat-card-content class="details-content">
+                        <h1 *ngIf="isLoggedInTrainer">Phone number: {{trainerDetails.phoneNumber}}</h1>
+                        <h1 *ngIf="isLoggedInTrainee">Phone number: {{traineeDetails.phoneNumber}}</h1>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="details-content">
+                    <mat-card-content class="details-content">
+                        <h1 *ngIf="isLoggedInTrainer">Year of birth: {{trainerDetails.yearOfBirth}}</h1>
+                        <h1 *ngIf="isLoggedInTrainee">Year of birth: {{traineeDetails.yearOfBirth}}</h1>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="details-content">
+                    <mat-card-content class="details-content">
+                        <h1 *ngIf="isLoggedInTrainer">Actual Gym: {{trainerDetails.actualGym}}</h1>
+                        <h1 *ngIf="isLoggedInTrainee">Actual Gym: {{traineeDetails.actualGym}}</h1>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="details-content">
+                    <mat-card-content class="details-content">
+                        <h1 *ngIf="isLoggedInTrainer">Registered date: {{trainerDetails.date  | date:'dd-MM-yyyy' }}</h1>
+                        <h1 *ngIf="isLoggedInTrainee">Registered date: {{traineeDetails.date  | date:'dd-MM-yyyy' }}</h1>
+                    </mat-card-content>
+                </mat-card>
+
+                <button  mat-raised-button class="back-button"  type="" matTooltip="Back to previous page" aria-label="Button that displays a 
+                tooltip when focused or hovered over" routerLink="/">
+                    Back
+                </button>
+                <button  *ngIf="isLoggedInTrainer" mat-raised-button class="update-button" type="submit" matTooltip="Edit profile details" aria-label="Button that displays a 
+                tooltip when focused or hovered over" routerLink="../trainer-update/{{trainerDetails.id}}">
+                    Edit profile
+                </button>
+                <button  *ngIf="isLoggedInTrainee" mat-raised-button class="update-button" type="submit" matTooltip="Edit profile details" aria-label="Button that displays a 
+                tooltip when focused or hovered over" routerLink="../trainee-update/{{traineeDetails.id}}">
+                    Edit profile
+                </button>
+
+
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+
+
+
+

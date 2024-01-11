@@ -1,0 +1,101 @@
+<form class="exercise-details-content" >
+    <h1 id="exercise-title">Edit Exercise</h1>
+    <p>Last update: {{ exercise.date  | date:'yyyy-MM-dd HH:mm' }}</p>
+    <h2 id="exercise-name">{{exercise.exerciseName}}</h2>
+
+    <mat-form-field *ngIf="isLoggedInTrainer && !isLoggedInTrainee">
+        <mat-label>Select a traine</mat-label>
+        <mat-select #mySelect (valueChange)="onChange(mySelect.value)">
+          <mat-option *ngFor="let trainee of trainerDetails.trainees" [value]="trainee">{{trainee.firstName}} {{trainee.lastName}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+        <mat-label>Max. weight</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" id="maximumWeight" [(ngModel)]="exercise.maximumWeight" name="maximumWeight">
+        <span matTextPrefix>Kg</span>
+        <span matTextSuffix>.00</span>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+        <mat-label>Series 1</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" id="series1" [(ngModel)]="exercise.series1" name="series1">
+        <span matTextPrefix>Repeats</span>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Series 2</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" id="series2" [(ngModel)]="exercise.series2" name="series2">
+        <span matTextPrefix>Repeats</span>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Series 3</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" id="series3" [(ngModel)]="exercise.series3" name="series3">
+        <span matTextPrefix>Repeats</span>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Series 4</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" id="series4" [(ngModel)]="exercise.series4" name="series4">
+        <span matTextPrefix>Repeats</span>
+    </mat-form-field>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            
+        </mat-expansion-panel-header>
+      
+        <ng-template matExpansionPanelContent floatLabel="always">
+            <mat-form-field floatLabel="always">
+                <mat-label>Series 5</mat-label>
+                <input matInput type="number" class="example-right-align" placeholder="0" id="series5" [(ngModel)]="exercise.series5" name="series5">
+                <span matTextPrefix>Repeats</span>
+            </mat-form-field><br>
+            <mat-form-field floatLabel="always">
+                <mat-label>Series 6</mat-label>
+                <input matInput type="number" class="example-right-align" placeholder="0" id="series6" [(ngModel)]="exercise.series6" name="series6">
+                <span matTextPrefix>Repeats</span>
+            </mat-form-field><br>
+            <mat-form-field floatLabel="always">
+                <mat-label>Series 7</mat-label>
+                <input matInput type="number" class="example-right-align" placeholder="0" id="series7" [(ngModel)]="exercise.series7" name="series7">
+                <span matTextPrefix>Repeats</span>
+            </mat-form-field><br>
+            <mat-form-field floatLabel="always">
+                <mat-label>Series 8</mat-label>
+                <input matInput type="number" class="example-right-align" placeholder="0" id="series8" [(ngModel)]="exercise.series8" name="series8">
+                <span matTextPrefix>Repeats</span>
+            </mat-form-field><br>
+            <mat-form-field floatLabel="always">
+                <mat-label>Series 9</mat-label>
+                <input matInput type="number" class="example-right-align" placeholder="0" id="series9" [(ngModel)]="exercise.series9" name="series9">
+                <span matTextPrefix>Repeats</span>
+            </mat-form-field><br>
+            <mat-form-field floatLabel="always">
+                <mat-label>Series 10</mat-label>
+                <input matInput type="number" class="example-right-align" placeholder="0" id="series10" [(ngModel)]="exercise.series10" name="series10">
+                <span matTextPrefix>Repeats</span>
+            </mat-form-field> <br>
+        </ng-template>
+      </mat-expansion-panel>
+
+
+    <mat-form-field class="comment-field">
+        <mat-label>Comment</mat-label>
+        <input matInput type="textarea"  placeholder="Type here!" id="comment" [(ngModel)]="exercise.comment" name="comment">
+    </mat-form-field> 
+    <mat-spinner floatLabel="always" id="buffering" *ngIf="loading"></mat-spinner>
+<div>
+    <button  mat-raised-button class="update-button"  type="" matTooltip="Back to previous page" aria-label="Button that displays a 
+    tooltip when focused or hovered over" routerLink="/exercises">
+        Back
+    </button>
+    <button  mat-raised-button class="update-button" type="submit" matTooltip="Save all changes" aria-label="Button that displays a 
+    tooltip when focused or hovered over" (click)="onSubmit()">
+        Save
+    </button>
+    <button  mat-raised-button class="update-button" type="submit" matTooltip="Delete just if isn`t assigned to a person" aria-label="Button that displays a 
+    tooltip when focused or hovered over" (click)="onSubmitOnDeleteExercise()" >
+        Delete
+    </button>
+    
+</div>
+
+</form>

@@ -1,0 +1,26 @@
+<mat-paginator [length]="50" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 50]" aria-label="Select page"></mat-paginator>
+<div class="container responsive-grid">
+    <mat-card *ngFor="let exercise of exercises" class="exercise-card" (click)="(exercise.id)" (click)="redirectToExerciseUpdate(exercise.id)">
+        <mat-card-header>
+            <mat-card-title>{{ exercise.exerciseName }}</mat-card-title>
+        </mat-card-header>
+            <br />
+        <!-- <img  mat-card-image  /> -->
+            <mat-card-content>
+            <br />
+        <!-- <p>Repeats series 1: {{ exercise.series1 }}</p>
+        <p>Repeats series 2: {{ exercise.series2 }}</p>
+        <p>Repeats series 3: {{ exercise.series3 }}</p>
+        <p>Repeats series 4: {{ exercise.series4 }}</p> -->
+        <p>Maximum weight: {{ exercise.maximumWeight }}</p>
+        <p>Last update: {{ exercise.date  | date:'yyyy-MM-dd HH:mm' }}</p>
+        <p>Comment: {{ exercise.comment }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>EDIT</button>
+
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+

@@ -1,0 +1,74 @@
+<form class="exercise-details-content">
+    <h1 id="exercise-title">Edit Exercise</h1>
+    <p>Last update: {{ exerciseDetails.date  | date:'yyyy-MM-dd HH:mm' }}</p>
+    <h2 id="exercise-name">{{exerciseDetails.exerciseName}}</h2>
+
+    <mat-form-field floatLabel="always">
+        <mat-label>Max. weight</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" value="{{exerciseDetails.maximumWeight}}">
+        <span matTextPrefix>Kg</span>
+        <span matTextSuffix>.00</span>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+        <mat-label>Series 2</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" value="{{exerciseDetails.series1}}" >
+        <span matTextPrefix>Repeats</span>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Series 2</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" value="{{exerciseDetails.series2}}">
+        <span matTextPrefix>Repeats</span>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Series 3</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" value="{{exerciseDetails.series3}}">
+        <span matTextPrefix>Repeats</span>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Series 4</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" value="{{exerciseDetails.series4}}">
+        <span matTextPrefix>Repeats</span>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Series 5</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" value="{{exerciseDetails.series5}}">
+        <span matTextPrefix>Repeats</span>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Series 6</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" value="{{exerciseDetails.series6}}">
+        <span matTextPrefix>Repeats</span>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Series 7</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" value="{{exerciseDetails.series7}}">
+        <span matTextPrefix>Repeats</span>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Series 8</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" value="{{exerciseDetails.series8}}">
+        <span matTextPrefix>Repeats</span>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Series 9</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" value="{{exerciseDetails.series9}}">
+        <span matTextPrefix>Repeats</span>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Series 10</mat-label>
+        <input matInput type="number" class="example-right-align"  placeholder="0" value="{{exerciseDetails.series10}}">
+        <span matTextPrefix>Repeats</span>
+    </mat-form-field>
+
+    <mat-form-field class="comment-field">
+        <mat-label>Comment</mat-label>
+        <input matInput type="textarea"  placeholder="Type here!" value="{{exerciseDetails.comment}}">
+    </mat-form-field>
+    
+    <button  mat-raised-button class="update-button" type="submit"
+    matTooltip="Save all changes"
+    aria-label="Button that displays a tooltip when focused or hovered over">
+Edit
+</button>
+</form>

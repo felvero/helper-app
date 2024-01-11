@@ -1,0 +1,50 @@
+.card.card-container {
+    padding-top: 50px;
+    border: none;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#profile-img {
+    width: 200px;
+    height: 200px;
+}
+
+.register-form {
+    width: auto;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: center;
+    justify-content: center;
+    padding-top: 0px;
+    width: 400px;
+}
+
+.form-group-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding-top: 0px;
+}
+
+#sign-up-button{
+width: 35%;
+padding-top: 5px;
+margin-bottom: 15px;
+display: flex;
+border-radius: 5px;
+align-items: center;
+align-content: center;
+justify-content: center;
+font-weight: bolder;
+background-color: cornflowerblue;
+}
