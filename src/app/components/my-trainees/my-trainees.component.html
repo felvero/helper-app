@@ -1,5 +1,5 @@
 
-<mat-paginator [length]="50" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 50]" aria-label="Select page"></mat-paginator>
+
 <div class="container responsive-grid" >
     <mat-card *ngFor="let trainee of trainees" class="trainee-card"  (click)="redirectToTraineeDetails(trainee.id)">
         <mat-card-header>

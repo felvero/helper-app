@@ -3,10 +3,8 @@
     <span class="example-spacer"></span>
 
     <button mat-button *ngIf="isLoggedInTrainer && !isLoggedInTrainee">Welcome, {{trainerDetails.firstName}} </button>
-    <button *ngIf="!isLoggedInTrainer && isLoggedInTrainee" mat-button [matMenuTriggerFor]="welcome" >Welcome, {{traineeDetails.firstName}} </button>
-    <mat-menu #welcome="matMenu">
-        <button *ngIf="!isLoggedInTrainer && isLoggedInTrainee" mat-menu-item routerLink="/trainer-details/{{trainerDetails.id}}" >My trainer: {{trainerDetails.firstName}}</button>
-    </mat-menu>
+    <button mat-button *ngIf="!isLoggedInTrainer && isLoggedInTrainee">Welcome, {{traineeDetails.firstName}} </button>
+
 
     <button *ngIf="isLoggedInTrainer || isLoggedInTrainee" mat-button [matMenuTriggerFor]="menu">Menu</button>
     <mat-menu #menu="matMenu">
@@ -20,7 +18,7 @@
     <mat-menu #profile="matMenu">
         <button mat-menu-item routerLink="/profile" >My Profile</button>
         <button *ngIf="isLoggedInTrainer || isLoggedInTrainee" mat-menu-item routerLink="/my-exercises" >My Exercises</button>
-        <button *ngIf="isLoggedInTrainer && !isLoggedInTrainee" mat-menu-item routerLink="/my-trainees" >My Trainees Profile</button>
+        <!-- <button *ngIf="isLoggedInTrainer && !isLoggedInTrainee" mat-menu-item routerLink="/my-trainees" >My Trainees Profile</button> -->
     </mat-menu>
 
 

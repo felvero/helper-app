@@ -1,7 +1,5 @@
 <div class="under-menu">
-    <div class="under-menu-paginator">
-        <mat-paginator [length]="50" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 50]" aria-label="Select page"></mat-paginator>
-    </div>
+
     <div class="under-menu-button">
         <button  mat-raised-button class="add-button" matTooltip="Add exercise" (click)="openDialog()" *ngIf="isLoggedInTrainer">
             Add exercise

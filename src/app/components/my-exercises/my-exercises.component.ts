@@ -5,7 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ExerciseService } from 'src/app/services/exercise.service';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
-import { ExerciseCreateComponent } from '../exercise-create/exercise-create.component';
+import { ExerciseCreate2Component } from '../exercise-create2/exercise-create2.component';
+import { Exercise } from 'src/app/types/exercise';
 
 @Component({
   selector: 'app-my-exercises',
@@ -13,6 +14,7 @@ import { ExerciseCreateComponent } from '../exercise-create/exercise-create.comp
   styleUrls: ['./my-exercises.component.css']
 })
 export class MyExercisesComponent {
+
   isLoggedInTrainer: boolean = false;
   isLoggedInTrainee: boolean = false;
 
@@ -45,12 +47,9 @@ ngOnInit(): void {
   }
 }
 
-
-
 redirectToExerciseUpdateByProfile(exerciseId: number){
   this.router.navigate(['/exercise-update', exerciseId])
 }
-
 
 getExercisesByTraineeId(traineeId?: number, token?: string) {
   this.exerciseService.getExercisesByTraineeId(traineeId!, token).subscribe(
@@ -75,20 +74,13 @@ getExercisesByTrainerId(trainerId?: number, token?: string)  {
 }
 
 openDialog() {
-  const dialogRef = this.dialog.open(ExerciseCreateComponent);
+  const dialogRef = this.dialog.open(ExerciseCreate2Component);
 
   dialogRef.afterClosed().subscribe(result => {
     console.log(`Dialog result: ${result}`);
   });
 }
 
-
-
-// ngOnInit(): void {
-//   const token = this.localStorage.getUser()?.token;
-//   this.exerciseService.getExercisesByTrainerId(token).subscribe((data) => 
-//   this.exercises = data.exercises);
-// }
 }
 
 

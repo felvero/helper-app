@@ -47,21 +47,20 @@ export class MyTraineesComponent {
     );
   }
 
-  getTrainerByTraineeId(traineeId?: number, token?: string) {
-    this.traineeService.getTrainerByTraineeId(traineeId!, token).subscribe(
-      (response) => {
-        this.trainees = response;
-      },
-      (error) => {
-        console.error('Error fetching trainer`s exercises details:', error);
-      }
-    );
-  }
-
   redirectToTraineeDetails(traineeId: number) {
     // Folosește Router pentru a naviga către trainer-details
     this.router.navigate(['/trainee-details', traineeId]);
   }
 
-
+  // getTrainerByTraineeId(traineeId?: number, token?: string) {
+  //   this.traineeService.getTrainerByTraineeId(traineeId!, token).subscribe(
+  //     (response) => {
+  //       this.trainees = response;
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching trainer`s exercises details:', error);
+  //     }
+  //   );
+  // }
+  
 }

@@ -18,6 +18,7 @@ import { MyTraineesComponent } from './components/my-trainees/my-trainees.compon
 import { TrainerUpdateComponent } from './components/trainer-update/trainer-update.component';
 import { TraineeUpdateComponent } from './components/trainee-update/trainee-update.component';
 import { DefaultComponent } from './components/default/default.component';
+import { ErrorOupsComponent } from './components/error-oups/error-oups.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path: 'my-trainees', component: MyTraineesComponent},
   {path: 'trainer-update/:id', component: TrainerUpdateComponent},
   {path: 'trainee-update/:id', component: TraineeUpdateComponent},
+  {path: 'error', component: ErrorOupsComponent},
   {path: '**', component: DefaultComponent},
 ];
 

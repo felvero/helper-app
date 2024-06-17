@@ -11,8 +11,7 @@ export interface Trainer {
     yearOfBirth: number;
     actualGym: string;
     date: Date;
-    trainees: Trainee[];
-    exercises: Exercise[];
+
 }
 
 export interface trainerDetails{

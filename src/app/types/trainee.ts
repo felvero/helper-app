@@ -1,7 +1,9 @@
 import { Exercise } from "./exercise";
+import { Trainer } from "./trainer";
 
 export interface Trainee {
     id: number;
+    trainer: Trainer;
     firstName: string;
     lastName: string;
     email: string;
@@ -10,11 +12,11 @@ export interface Trainee {
     yearOfBirth: number;
     actualGym: string;
     date: Date;
-    exercises: Exercise[];
 }
 
 export interface TraineeData {
     id: number;
+    trainer: Trainer;
     firstName: string;
     lastName: string;
     email: string;
@@ -22,5 +24,4 @@ export interface TraineeData {
     yearOfBirth: number;
     actualGym: string;
     date: Date;
-    exercises: Exercise[];
 }

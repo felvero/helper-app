@@ -68,41 +68,6 @@ constructor(
     )
   }
 
-  assignExerciseToTrainer(trainerId?: number, exerciseId?: number, token?: string){
-    this.exerciseService.assignExerciseToTrainer(trainerId, exerciseId, token).subscribe(
-      (response) => {
-        console.log('Exercițiul a fost șters cu succes!', response)
-      },
-      (error) => {
-        console.error('Error fetching exercise deleting:', error)
-      }
-    )
-  }
-
-  assignExerciseToTrainee(traineeId?: number, exerciseId?: number, token?: string){
-    this.exerciseService.assignExerciseToTrainee(traineeId, exerciseId, token).subscribe(
-      (response) => {
-        console.log('Exercițiul a fost șters cu succes!', response)
-      },
-      (error) => {
-        console.error('Error fetching exercise deleting:', error)
-      }
-    )
-  }
-
-
-      onChange(value: any){
-    const token = this.localStorage.getUser()?.token;
-
-    this.exerciseService.assignExerciseToTrainee(value.id, this.id, token).subscribe();
-    this.loading = true;
-  setTimeout(() => {
-    window.history.back();
-  this.loading = false;
-}, 1000);
-}
-
-
       onSubmit(){
         const token = this.localStorage.getUser()?.token;
         this.exerciseService.updateExercise(this.id, this.exercise, token).subscribe();
@@ -130,22 +95,7 @@ constructor(
   }, 1000);
   }
 
-  onSubmitAssignExerciseToTrainer(){
-    const token = this.localStorage.getUser()?.token;
-    this.exerciseService.assignExerciseToTrainer(this.id, this.exerciseId, token).subscribe(
-      (response) => {
-        console.log('Exercise deleted succesfully!', response)
-      },
-      (error) => {
-        console.error('Error fetching exercise deleting:', error)
-      }
-    );
-    this.loading = true;
-  setTimeout(() => {
-    window.history.back();
-  this.loading = false;
-}, 1000);
-}
+
 
 getTrainerDetails(trainerId: number, token?: string) {
   console.log('step2');

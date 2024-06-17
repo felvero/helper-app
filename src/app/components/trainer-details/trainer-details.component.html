@@ -44,15 +44,14 @@
                 tooltip when focused or hovered over" routerLink="/">
                     Back
                 </button>
-                <button  *ngIf="isLoggedInTrainee" mat-raised-button class="update-button" type="submit" matTooltip="Edit profile details" aria-label="Button that displays a 
-                tooltip when focused or hovered over" (click)="onSubmitTrainerToTrainee()">
+                <!-- <button  *ngIf="isLoggedInTrainee" mat-raised-button class="update-button" type="submit" matTooltip="Edit profile details" aria-label="Button that displays a 
+                tooltip when focused or hovered over">
                     Be my trainer
-                </button>
+                </button> -->
             </div>
         </mat-card-content>
     </mat-card>
 </div>
-<mat-paginator [length]="50" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 50]" aria-label="Select page" *ngIf="isLoggedInTrainer"></mat-paginator>
 <div class="container responsive-grid"  *ngIf="isLoggedInTrainer">
     <mat-card *ngFor="let trainee of trainerDetails.trainees" class="trainee-card"  (click)="redirectToTraineeDetails(trainee.id)">
         <mat-card-header>

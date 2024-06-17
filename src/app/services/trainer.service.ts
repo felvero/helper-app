@@ -4,8 +4,6 @@ import { TrainerResponse } from '../types/trainerResponse';
 import { Observable } from 'rxjs';
 import { Trainer } from '../types/trainer';
 import { LocalstorageService } from './localstorage.service';
-import { Exercise } from '../types/exercise';
-import { ExerciseResponse } from '../types/exerciseResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -46,19 +44,6 @@ export class TrainerService {
     }
   }
 
-  addExerciseToTrainer(exercise: Exercise, token?: string, trainerId?: number, exerciseId?: number){
-    if (token) {
-      const headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      });
-      return this.http.post<Exercise>(this.url, exercise, { headers: headers });
-      // this.http.get<TrainerResponse>(`${this.url}`+"/"+trainerId+"/add_exercise"+exerciseId, { headers: headers });
-    } else {
-      return null;
-  }
-  }
-
   updateTrainer(id: number, trainer: Trainer, token?: string): Observable<Object> {
     if (token) {
       const headers = new HttpHeaders({
@@ -71,26 +56,16 @@ export class TrainerService {
     }
   }
 
-  getTrainerToTrainee(trainerId: number,traineeId: number, token?: string): Observable<any>{
+  getTrainerNameByTraineeId(traineeId: number, token?: string): Observable<any> {
     if (token) {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       });
-      return this.http.post<TrainerResponse>(`${this.url}/${trainerId}/add-trainee/${traineeId}`, {}, { headers: headers }
-      );
-    } else {
-      return this.http.get<TrainerResponse>(this.url); //403 - Forbidden
-    }
+    return this.http.get(`${this.url}/trainer-name/${traineeId}`, { responseType: 'text' });
+  } else {
+    return this.http.get(this.url); //403 - Forbidden
   }
 }
 
-
-
-
-
-
-  // getTrainerDetails(id:number): Observable<any>{
-  //   return this.http.get<any>(this.url+"/"+id)
-  // }
-
+}

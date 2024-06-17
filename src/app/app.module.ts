@@ -42,6 +42,8 @@ import { TrainerUpdateComponent } from './components/trainer-update/trainer-upda
 import { TraineeUpdateComponent } from './components/trainee-update/trainee-update.component';
 import { DefaultComponent } from './components/default/default.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ErrorOupsComponent } from './components/error-oups/error-oups.component';
+import { ExerciseCreate2Component } from './components/exercise-create2/exercise-create2.component';
 
 
 
@@ -68,6 +70,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     TrainerUpdateComponent,
     TraineeUpdateComponent,
     DefaultComponent,
+    ErrorOupsComponent,
+    ExerciseCreate2Component,
 
   ],
   imports: [

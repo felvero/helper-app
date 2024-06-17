@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Trainer } from 'src/app/types/trainer';
 import { TrainerService } from 'src/app/services/trainer.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 
@@ -17,7 +17,6 @@ trainerDetails!: Trainer[];
 
 constructor(
   private trainerService: TrainerService, 
-  private route:ActivatedRoute, 
   private router:Router,
   private localStorage: LocalstorageService
   ){}
@@ -34,17 +33,5 @@ ngOnInit(): void {
   .subscribe((data) => this.trainers = data.trainers);
   }
 }
-
-
-
-
-
-  //   this.routeSub = this.route.params.subscribe(params => {
-  //     this.trainerService.getTrainerDetails(params['id']).subscribe(response => {
-  //       this.trainerDetails = response;
-  //       return this.trainerDetails;
-  //     })
-  // })
-  
 
 

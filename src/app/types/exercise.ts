@@ -1,5 +1,11 @@
+import { Trainee } from "./trainee";
+import { Trainer } from "./trainer";
+
 export interface Exercise{
     id: number;
+    trainer: Trainer;
+    trainee: Trainee;
+    exercise: Exercise;
     exerciseName: string;
     series1: number;
     series2: number;
@@ -18,6 +24,8 @@ export interface Exercise{
 
 export interface ExerciseData{
     id: number;
+    trainee: Trainee;
+    exercise: Exercise;
     exerciseName: string;
     series1: number;
     series2: number;

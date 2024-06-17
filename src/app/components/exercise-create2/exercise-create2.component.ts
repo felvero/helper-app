@@ -6,15 +6,15 @@ import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { ExerciseResponse } from 'src/app/types/exerciseResponse';
 import { Trainee } from 'src/app/types/trainee';
 import { Trainer } from 'src/app/types/trainer';
-import { TraineeService } from 'src/app/services/trainee.service';
-import { TraineeResponse } from 'src/app/types/traineeResponse';
+import { TrainerService } from 'src/app/services/trainer.service';
+import { TrainerResponse } from 'src/app/types/trainerResponse';
 
 @Component({
   selector: 'app-exercise-create',
-  templateUrl: './exercise-create.component.html',
-  styleUrls: ['./exercise-create.component.css']
+  templateUrl: './exercise-create2.component.html',
+  styleUrls: ['./exercise-create2.component.css']
 })
-export class ExerciseCreateComponent implements OnInit{
+export class ExerciseCreate2Component implements OnInit{
   isLoggedInTrainer: boolean = false;
   isLoggedInTrainee: boolean = false;
 
@@ -40,21 +40,16 @@ export class ExerciseCreateComponent implements OnInit{
     private exerciseService: ExerciseService, 
     public dialog: MatDialog,  
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<ExerciseCreateComponent>,
+    public dialogRef: MatDialogRef<ExerciseCreate2Component>,
     private http: HttpClient,
     private localStorage: LocalstorageService,
-    private traineeService: TraineeService
+    private trainerService: TrainerService
     ) { }
 
   ngOnInit(): void {
     this.tokenGlobal = this.localStorage.getUser()?.token;
-    this.traineeService.getTrainees(this.tokenGlobal).subscribe((response: TraineeResponse) => {
-      this.trainees = response.trainees;
-      // this.trainersCountTest = response.count;
-      // this.trainersTest = response.trainers.map(value => value.firstName + value.phoneNumber);
-      // this.trainersTest = response.trainers.filter(value => value.firstName.startsWith("A")).map(value => value.firstName);
-      // console.log("trainerTest = " + this.trainersTest);
-      // console.log("trainerCountTest = " + this.trainersCountTest);
+    this.trainerService.getTrainers(this.tokenGlobal).subscribe((response: TrainerResponse) => {
+      this.trainers = response.trainers;
     });
   }
 
@@ -116,65 +111,4 @@ export class ExerciseCreateComponent implements OnInit{
       { value: 'Mountain Climbers', label: 'Mountain Climbers' },
       { value: 'Burpees', label: 'Burpees' },
       ];
-
-
-      onSubmitForTrainee(selectedTraineeId: Trainee, selectedOption2: string | undefined) {
-        this.selectedTraineeId = selectedTraineeId;
-        console.log(selectedTraineeId);
-      
-          if (this.tokenGlobal) {
-          const headers = new HttpHeaders({
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${this.tokenGlobal}`,
-          });
-      
-        console.log(selectedOption2)
-        const newExercise = {
-          trainee: {
-            id:selectedTraineeId?.id,
-            firstName:selectedTraineeId?.firstName,
-            lastName: selectedTraineeId?.lastName,
-            email: selectedTraineeId?.email,
-            phoneNumber: selectedTraineeId?.phoneNumber,
-            yearOfBirth: selectedTraineeId?.yearOfBirth,
-            actualGym: selectedTraineeId?.actualGym
-          },
-          exerciseName: this.selectedOption2,
-          comment: this.comment
-        };
-      this.http.post<ExerciseResponse>(`${this.url}/addToTrainee`, newExercise, {headers: headers}).subscribe();
-        } else {
-      this.http.get<ExerciseResponse>(this.urlError); //403 - Forbidden
-        }
-      }
-    
-      selectedOption2: string | undefined; // Variabila pentru a stoca valoarea selectată
-      options2 = [
-          { value: 'Push-up', label: 'Push-up' },
-          { value: 'Pull-up', label: 'Pull-up' },
-          { value: 'Squat', label: 'Squat' },
-          { value: 'Deadlift', label: 'Deadlift' },
-          { value: 'Plank', label: 'Plank' },
-          { value: 'Dumbbell Press', label: 'Dumbbell Press' },
-          { value: 'Lunges', label: 'Lunges' },
-          { value: 'Bench Press', label: 'Bench Press' },
-          { value: 'Leg Press', label: 'Leg Press' },
-          { value: 'Lat Pulldown', label: 'Lat Pulldown' },
-          { value: 'Barbell Row', label: 'Barbell Row' },
-          { value: 'Shoulder Press', label: 'Shoulder Press' },
-          { value: 'Bicep Curls', label: 'Bicep Curls' },
-          { value: 'Tricep Dips', label: 'Tricep Dips' },
-          { value: 'Ab Crunches', label: 'Ab Crunches' },
-          { value: 'Russian Twists', label: 'Russian Twists' },
-          { value: 'Leg Curls', label: 'Leg Curls' },
-          { value: 'Leg Extensions', label: 'Leg Extensions' },
-          { value: 'Seated Row', label: 'Seated Row' },
-          { value: 'Box Jumps', label: 'Box Jumps' },
-          { value: 'Kettlebell Swings', label: 'Kettlebell Swings' },
-          { value: 'Medicine Ball Slams', label: 'Medicine Ball Slams' },
-          { value: 'Battle Ropes', label: 'Battle Ropes' },
-          { value: 'Mountain Climbers', label: 'Mountain Climbers' },
-          { value: 'Burpees', label: 'Burpees' },
-          ];
-
 }

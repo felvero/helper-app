@@ -6,16 +6,16 @@
   
 
           <mat-form-field class="add-field">
-            <mat-label>Trainee</mat-label>
-              <mat-select [(ngModel)]="selectedTraineeId" required >
-                <mat-option *ngFor="let trainee of trainees" [value]="trainee"> {{ trainee.firstName }} {{ trainee.lastName }}  </mat-option>
+            <mat-label>Trainer</mat-label>
+              <mat-select [(ngModel)]="selectedTrainerId" required >
+                <mat-option *ngFor="let trainer of trainers" [value]="trainer"> {{ trainer.firstName }} {{ trainer.lastName }}  </mat-option>
               </mat-select>
           </mat-form-field>
 
           <mat-form-field class="add-field">
             <mat-label>Exercise name</mat-label>
-              <mat-select [(ngModel)]="selectedOption2" required>
-                <mat-option *ngFor="let option of options2" [value]="option.value">{{ option.label }}</mat-option>
+              <mat-select [(ngModel)]="selectedOption" required>
+                <mat-option *ngFor="let option of options" [value]="option.value">{{ option.label }}</mat-option>
               </mat-select>
           </mat-form-field>
 
@@ -26,7 +26,7 @@
           </mat-form-field>
 
         <div mat-dialog-actions class="add-button">
-          <button mat-raised-button class="add-button" (click)="onSubmitForTrainee(selectedTraineeId, selectedOption2)" mat-dialog-close>Add</button>
+          <button mat-raised-button class="add-button" (click)="onSubmitForTrainer(selectedTrainerId, selectedOption)" mat-dialog-close>Add</button>
         </div>
 
       </div>

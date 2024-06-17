@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   traineeDetails: any = {};
   trainerDetails: any = {};
   routeSub:Subscription | undefined;
+  trainerNames: any = [];
 
   constructor(
     private traineeService: TraineeService, 
@@ -66,11 +67,22 @@ export class AppComponent implements OnInit {
         this.getTrainerDetails(id, token);
       } else {
         this.getTraineeDetails(id, token);
+        this.getTrainerNameByTraineeId(id, token);
       }
-
-
-
+      
     });
+  }
+
+  getTrainerNameByTraineeId(traineeId?:number, token?:string){
+    this.traineeService.getTrainerNameByTraineeId(traineeId!, token).subscribe(
+      (response) => {
+        this.trainerNames = response;
+      },
+      (error) => {
+        console.error('Error fetching trainer`s exercises details:', error);
+      }
+    );
+    
   }
 
   logout() {

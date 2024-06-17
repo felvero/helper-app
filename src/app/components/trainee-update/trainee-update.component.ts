@@ -22,7 +22,7 @@ export class TraineeUpdateComponent {
 
     ngOnInit() {
       this.route.params.subscribe(params => {
-        const id = params['id']; // Assuming 'id' is the parameter name in your route
+        const id = params['id']; 
         this.id = id;
         const token = this.localStorage.getUser()?.token;
   
